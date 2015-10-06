@@ -15,9 +15,6 @@ export class UserMapper {
   get(id: number): Promise<User> {
     return this.http.get(this.url + '/' + id)
       .then(res => {
-        return res.json();
-      })
-      .then(res => {
         let user = new User();
         user.id = res.id;
         user.name = res.name;
