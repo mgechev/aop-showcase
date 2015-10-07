@@ -1,7 +1,5 @@
 /// <reference path="./node_modules/angular2/bundles/typings/angular2/angular2.d.ts"/>
-/// <reference path="./node_modules/aspect.js/typings/tsd.d.ts"/>
 /// <reference path="./node_modules/reflect-metadata/reflect-metadata.d.ts"/>
-/// <reference path="./node_modules/aspect.js/dist/js/es5/aspect.d.ts"/>
 
 declare module 'aspect.js' {
   let beforeResolve: any;
