@@ -1,0 +1,2 @@
+tsc --experimentalDecorators --emitDecoratorMetadata --module commonjs index.ts -t ES5
+node index.js
