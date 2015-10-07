@@ -1,18 +1,19 @@
 import {before, after, afterResolve} from 'aspect.js';
 
 export class LoggerAspect {
-  @before(/^\w+Mapper$/, /.*/)
-  before(meta, id) {
-    console.log(`Invication of ${meta.className}.${meta.name} started`);
+  @before(/.*/, /^get/)
+  before(m, param) {
+    console.log(`${this.getPrefix(m)} Invoked with ${param}`);
   }
-
-  @after(/^\w+Mapper$/, /.*/)
-  after(meta, id) {
-    console.log(`Invocation of ${meta.className}.${meta.name} completed`);
+  @after(/.*/, /^get/)
+  after(m, id) {
+    console.log(`${this.getPrefix(m)} Waiting to complete...`);
   }
-
-  @afterResolve(/^\w+Mapper$/, /.*/)
-  afterResolve(meta, id) {
-    console.log(`The async method ${meta.className}.${meta.name} completed`);
+  @afterResolve(/.*/, /^get/)
+  afterResolve(m, id) {
+    console.log(`${this.getPrefix(m)} Request completed!`);
+  }
+  getPrefix(m) {
+    return `${m.className}.${m.name}:`;
   }
 }

@@ -1,5 +1,7 @@
 import * as fetch from 'isomorphic-fetch';
+import {Wove} from 'aspect.js';
 
+@Wove
 export class Http {
   get(url) {
     return fetch(url + '?' + Math.random())
